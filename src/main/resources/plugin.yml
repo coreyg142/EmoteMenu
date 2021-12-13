@@ -5,3 +5,18 @@ api-version: 1.18
 prefix: EmoteMenu
 authors: [ ThatOneLegion ]
 description: An Emote menu for chat
+
+commands:
+  emotes:
+    description: An interactive emote menu
+    usage: /emotes
+    permission: EmoteMenu.emotes
+    permission-message: You do not have access to this command
+
+permissions:
+  EmoteMenu.emotes:
+    description: access to the /emotes command
+    default: true
+  EmoteMenu.*:
+    description: All commands for EmoteMenu
+    default: false
