@@ -1,0 +1,7 @@
+name: EmoteMenu
+version: '${project.version}'
+main: io.github.coreyg142.emotemenu.EmoteMenu
+api-version: 1.18
+prefix: EmoteMenu
+authors: [ ThatOneLegion ]
+description: An Emote menu for chat
