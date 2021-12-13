@@ -7,11 +7,13 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import static io.github.coreyg142.emotemenu.util.Emote.TWITCH_EMOTES;
 
 public class CommandEmotes implements CommandExecutor {
+
+
 	/**
 	 * Executes the given command, returning its success.
 	 * <br>
@@ -25,10 +27,9 @@ public class CommandEmotes implements CommandExecutor {
 	 * @return true if a valid command, otherwise false
 	 */
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		Player player = (Player) sender;
+	public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
 
-		player.sendMessage(getMenu());
+		sender.spigot().sendMessage(getMenu());
 
 		return true;
 	}
@@ -61,5 +62,4 @@ public class CommandEmotes implements CommandExecutor {
 
 		return output;
 	}
-
 }
