@@ -15,6 +15,7 @@ public final class EmoteMenu extends JavaPlugin {
 		// Plugin startup logic
 
 		Emote.populateTwitchEmotes();
+		getLogger().info(String.format("Loaded %d emotes", Emote.TWITCH_EMOTES.size()));
 		Objects.requireNonNull(this.getCommand("emotes")).setExecutor(new CommandEmotes());
 		getLogger().info("Emote menu is initialized!");
 	}
