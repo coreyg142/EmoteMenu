@@ -31,6 +31,10 @@ public class Emote {
 		return SOURCE;
 	}
 
+	public static int calcComponentSize(){
+		return ((TWITCH_EMOTES.size() * 2) + 2);
+	}
+
 	public static void populateTwitchEmotes(){
 		TWITCH_EMOTES = new ArrayList<>();
 		TWITCH_EMOTES.add(new Emote("rudeBonk", "\ue000", Source.TWITCH));

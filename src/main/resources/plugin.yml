@@ -10,8 +10,6 @@ commands:
   emotes:
     description: An interactive emote menu
     usage: /emotes
-    permission: EmoteMenu.emotes
-    permission-message: You do not have access to this command
 
 permissions:
   EmoteMenu.emotes:

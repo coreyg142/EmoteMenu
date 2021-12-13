@@ -6,13 +6,12 @@ import net.md_5.bungee.api.chat.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-import static io.github.coreyg142.emotemenu.util.Emote.TWITCH_EMOTES;
 
 public class CommandEmotes implements CommandExecutor {
 
+	private TextComponent space = new TextComponent(" ");
 
 	/**
 	 * Executes the given command, returning its success.
@@ -35,7 +34,7 @@ public class CommandEmotes implements CommandExecutor {
 	}
 
 	public BaseComponent[] getMenu(){
-		BaseComponent[] output = new BaseComponent[TWITCH_EMOTES.size() + 2];
+		BaseComponent[] output = new BaseComponent[Emote.calcComponentSize()];
 
 		output[0] = new TextComponent("Available Emotes\n");
 		output[0].setColor(ChatColor.DARK_PURPLE);
@@ -46,8 +45,8 @@ public class CommandEmotes implements CommandExecutor {
 		output[1].setColor(ChatColor.BLUE);
 
 		int index = 2;
-		for(Emote e : TWITCH_EMOTES){
-			TextComponent emote = new TextComponent(" " + e.getCODE());
+		for(Emote e : Emote.TWITCH_EMOTES){
+			TextComponent emote = new TextComponent(e.getCODE());
 			emote.setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, e.getCODE()));
 			emote.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder()
 					.append(e.getCODE())
@@ -57,6 +56,7 @@ public class CommandEmotes implements CommandExecutor {
 					.color(ChatColor.YELLOW)
 					.create()));
 
+			output[index++] = space;
 			output[index++] = emote;
 		}
 
