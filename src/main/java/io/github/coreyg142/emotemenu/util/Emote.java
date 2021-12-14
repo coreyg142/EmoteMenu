@@ -1,5 +1,6 @@
 package io.github.coreyg142.emotemenu.util;
 
+import com.sun.media.sound.InvalidFormatException;
 import io.github.coreyg142.emotemenu.EmoteMenu;
 
 import java.util.ArrayList;
@@ -45,10 +46,11 @@ public class Emote {
 			s = s.replaceAll("\\s", "");
 			String[] split = s.split(",");
 			try{
+				if(split.length != 3) throw new IndexOutOfBoundsException();
 				TWITCH_EMOTES.add(new Emote(split[0], split[1], Source.valueOf(split[2])));
 			}catch (Exception e){
-				EmoteMenu.logger.severe("Failed reading emotes from config file, are they in the right format?");
-				return false;
+				EmoteMenu.logger.warning("Failed reading an emote from config file, are they in the right format?");
+				//Ignoring improper format
 			}
 		}
 //		TWITCH_EMOTES.add(new Emote("rudeBonk", "\ue000", Source.TWITCH));

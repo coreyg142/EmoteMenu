@@ -22,7 +22,7 @@ public final class EmoteMenu extends JavaPlugin {
 		boolean success = Emote.populateTwitchEmotes(emotes);
 
 		if(!success) {
-			getLogger().severe("Failed to initialize plugin, is the config in the right format?");
+			getLogger().severe("Failed to initialize plugin.");
 			return;
 		}
 
