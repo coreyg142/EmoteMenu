@@ -12,7 +12,7 @@ TwitchEmotes:
   - "rudeHuh,\ue008,TWITCH"
   - "rudeHype,\ue009,TWITCH"
   - "rudeIdea,\ue00A,TWITCH"
-  - "rudeShook,\ue00B, TWITCH"
+  - "rudeShook,\ue00B,TWITCH"
 
   - "rudeJerry,\ue00C,TWITCH"
   - "rudeLove,\ue00D,TWITCH"
@@ -34,3 +34,14 @@ TwitchEmotes:
   - "rudePolice,\ue01B,TWITCH"
   - "rudeQueen,\ue01C,TWITCH"
   - "rudeZzz,\ue01D,TWITCH"
+
+  - "rudeAus,\ue022,TWITCH"
+
+BTTVEmotes:
+  - "KEKW,\ue021,BTTV"
+  - "rudeAyy,\ue023,BTTV"
+  - "rudeSon,\ue024,BTTV"
+
+OtherEmotes:
+  - "flag_au,\ue01F,OTHER"
+  - "flag_nz,\ue020,OTHER"

@@ -49,20 +49,37 @@ public class CommandEmotes implements CommandExecutor {
 
 		int index = 2;
 		for(Emote e : Emote.TWITCH_EMOTES){
-			TextComponent emote = new TextComponent(e.getCODE());
-			emote.setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, e.getCODE()));
-			emote.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder()
-					.append(e.getCODE())
-					.append(" ")
-					.append(e.getNAME())
-					.append("\nClick to copy")
-					.color(ChatColor.YELLOW)
-					.create()));
+			index = makeComponent(output, index, e);
+		}
 
-			output[index++] = space;
-			output[index++] = emote;
+   		output[index++] = new ComponentBuilder().append("\nBTTV\n").color(ChatColor.BLUE).create()[0];
+
+		for(Emote e : Emote.BTTV_EMOTES){
+			index = makeComponent(output, index, e);
+		}
+
+		output[index++] = new ComponentBuilder().append("\nOther\n").color(ChatColor.BLUE).create()[0];
+
+		for(Emote e : Emote.OTHER_EMOTES){
+			index = makeComponent(output, index, e);
 		}
 
 		return output;
+	}
+
+	private int makeComponent(BaseComponent[] output, int index, Emote e) {
+		TextComponent emote = new TextComponent(e.getCODE());
+		emote.setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, e.getCODE()));
+		emote.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder()
+				.append(e.getCODE())
+				.append(" ")
+				.append(e.getNAME())
+				.append("\nClick to copy")
+				.color(ChatColor.YELLOW)
+				.create()));
+
+		output[index++] = space;
+		output[index++] = emote;
+		return index;
 	}
 }
