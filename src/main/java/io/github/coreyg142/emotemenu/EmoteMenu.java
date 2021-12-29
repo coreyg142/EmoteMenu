@@ -18,7 +18,6 @@ public final class EmoteMenu extends JavaPlugin {
 		this.saveDefaultConfig();
 		logger = getLogger();
 
-		//Get the emotes ready
 		List<String> emotes = this.getConfig().getStringList("TwitchEmotes");
 		Emote.populateEmotes(emotes, Emote.Source.TWITCH);
 		emotes = this.getConfig().getStringList("BTTVEmotes");
